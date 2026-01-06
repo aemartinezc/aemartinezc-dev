@@ -1,42 +1,110 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eduardo Martínez | Senior Fullstack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Modal de imagen */
+        #image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #image-modal img {
+            max-width: 90vw;
+            max-height: 80vh;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 32px 0 #000a;
+        }
+
+        #image-modal .close-btn {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            color: #fff;
+            font-size: 2.5rem;
+            cursor: pointer;
+            z-index: 1100;
+            transition: color 0.2s;
+        }
+
+        #image-modal .close-btn:hover {
+            color: #1f6feb;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    </style>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Modal para imagen grande (debe ir aquí para estar dentro del body) -->
+    <div id="image-modal" onclick="closeImageModal()">
+        <span class="close-btn" onclick="closeImageModal(); event.stopPropagation();">&times;</span>
+        <img id="modal-img" src="" alt="Vista previa proyecto">
+    </div>
 
     <header class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-24 px-6 text-center">
         <div class="max-w-4xl mx-auto">
             <div class="mb-4">
-                <div class="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
-                    <i class="fas fa-code mr-2"></i> Senior Fullstack Developer
+                <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-database mr-2"></i> Ingeniero en Sistemas | 12+ años
                 </div>
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Ing. Eduardo Martínez Castillo</h1>
-            <p class="text-2xl text-blue-300 mb-2 font-light">Experto en Arquitectura de Software</p>
-            <p class="text-lg text-gray-300 mb-10">Transformo ideas en soluciones escalables que impulsan el crecimiento empresarial</p>
-            
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Eduardo Martínez Castillo</h1>
+            <p class="text-2xl text-blue-200 mb-2 font-light">Especialista en Software Institucional y Arquitectura de
+                Bases de Datos</p>
+            <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">Más de 12 años de experiencia en el sector público
+                y privado, desarrollando soluciones digitales escalables, transparentes y alineadas a normativas legales
+                y de negocio. Experto en PHP (Laravel), JavaScript y MySQL/MariaDB, con historial probado en
+                optimización de procesos, reducción de tiempos de respuesta y atención a más de 100,000 usuarios.</p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:edwardo.mtz@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
+                <a href="mailto:edwardo.mtz@gmail.com"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
                     <i class="fas fa-envelope mr-2"></i> Contáctame
                 </a>
-                <a href="#proyectos" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
+                <a href="#proyectos"
+                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
                     <i class="fas fa-briefcase mr-2"></i> Ver Proyectos
                 </a>
             </div>
-
             <div class="flex justify-center gap-6 mt-8">
-                <a href="https://linkedin.com/in/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="LinkedIn">
+                <a href="https://linkedin.com/in/aemartinezc"
+                    class="text-blue-300 hover:text-blue-200 text-2xl transition" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="GitHub">
+                <a href="https://github.com/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition"
+                    title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:edwardo.mtz@gmail.com" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="Email">
+                <a href="mailto:edwardo.mtz@gmail.com" class="text-blue-300 hover:text-blue-200 text-2xl transition"
+                    title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -45,20 +113,24 @@
 
     <section class="max-w-5xl mx-auto py-16 px-6">
         <h2 class="text-3xl font-bold mb-10 text-center">Mi Experiencia</h2>
-        
+
         <div class="grid md:grid-cols-2 gap-8 mb-12">
             <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border-l-4 border-blue-500">
                 <h3 class="text-xl font-bold text-blue-700 mb-3">
                     <i class="fas fa-building mr-2"></i> Sector Público
                 </h3>
-                <p class="text-gray-700">Lideré la transformación digital de instituciones estatales, desarrollando sistemas que sirven a 18,000+ servidores públicos con resultados medibles: reducción de 35% en tiempos de respuesta y mejora en eficiencia operativa.</p>
+                <p class="text-gray-700">Lideré la transformación digital de instituciones estatales, desarrollando
+                    sistemas que sirven a 18,000+ servidores públicos con resultados medibles: reducción de 35% en
+                    tiempos de respuesta y mejora en eficiencia operativa.</p>
             </div>
 
             <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-lg border-l-4 border-green-500">
                 <h3 class="text-xl font-bold text-green-700 mb-3">
                     <i class="fas fa-rocket mr-2"></i> Sector Privado
                 </h3>
-                <p class="text-gray-700">Desarrollé soluciones innovadoras para startups y empresas consolidadas. Especializado en arquitectura escalable, APIs robustas y optimización de rendimiento con impacto directo en ingresos.</p>
+                <p class="text-gray-700">Desarrollé soluciones innovadoras para startups y empresas consolidadas.
+                    Especializado en arquitectura escalable, APIs robustas y optimización de rendimiento con impacto
+                    directo en ingresos.</p>
             </div>
         </div>
 
@@ -127,14 +199,50 @@
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-10">Stack Tecnológico</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fab fa-php text-4xl text-blue-800 mb-2"></i><p class="font-semibold">PHP (Laravel)</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-database text-4xl text-blue-500 mb-2"></i><p class="font-semibold">MySQL / MariaDB</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fab fa-js text-4xl text-yellow-500 mb-2"></i><p class="font-semibold">JavaScript</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-robot text-4xl text-purple-500 mb-2"></i><p class="font-semibold">IA para Desarrollo</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-server text-4xl text-green-600 mb-2"></i><p class="font-semibold">APIs REST</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-chart-bar text-4xl text-orange-500 mb-2"></i><p class="font-semibold">Análisis de Datos</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-lock text-4xl text-red-600 mb-2"></i><p class="font-semibold">Seguridad Web</p></div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-tachometer-alt text-4xl text-blue-600 mb-2"></i><p class="font-semibold">Optimización</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fab fa-php text-4xl text-blue-800 mb-2"></i>
+                    <p class="font-semibold">PHP (Laravel)</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-database text-4xl text-blue-500 mb-2"></i>
+                    <p class="font-semibold">MySQL / MariaDB</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
+                    <p class="font-semibold">JavaScript</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fab fa-linux text-4xl text-gray-700 mb-2"></i>
+                    <p class="font-semibold">CentOS / Linux</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fab fa-wordpress-simple text-4xl text-blue-700 mb-2"></i>
+                    <p class="font-semibold">WordPress</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-pencil-ruler text-4xl text-pink-500 mb-2"></i>
+                    <p class="font-semibold">Herramientas UI/UX</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-robot text-4xl text-purple-500 mb-2"></i>
+                    <p class="font-semibold">IA para Desarrollo</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-server text-4xl text-green-600 mb-2"></i>
+                    <p class="font-semibold">APIs REST</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-chart-bar text-4xl text-orange-500 mb-2"></i>
+                    <p class="font-semibold">Análisis de Datos</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-lock text-4xl text-red-600 mb-2"></i>
+                    <p class="font-semibold">Seguridad Web</p>
+                </div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
+                        class="fas fa-tachometer-alt text-4xl text-blue-600 mb-2"></i>
+                    <p class="font-semibold">Optimización</p>
+                </div>
             </div>
         </div>
     </section>
@@ -142,37 +250,40 @@
     <!-- Sección: Por qué contratarme -->
     <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">¿Por qué elegiré como tu Desarrollador?</h2>
-            
+            <h2 class="text-3xl font-bold mb-12 text-center">¿Por qué elegirme como tu Desarrollador?</h2>
+
             <div class="grid md:grid-cols-3 gap-8 mb-12">
                 <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-600">
                     <div class="flex items-center mb-4">
                         <div class="bg-blue-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                            <i class="fas fa-landmark text-blue-600 text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg">Experiencia Comprobada</h3>
+                        <h3 class="font-bold text-lg">Expertise Sectorial</h3>
                     </div>
-                    <p class="text-gray-600">12+ años desarrollando soluciones que impactan a miles de usuarios en sectores público y privado.</p>
+                    <p class="text-gray-600">Amplia trayectoria fusionando la rigurosidad del <strong>Gobierno
+                            Digital</strong> con la agilidad del <strong>Sector Privado</strong> y Startups.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-green-600">
                     <div class="flex items-center mb-4">
                         <div class="bg-green-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-rocket text-green-600 text-2xl"></i>
+                            <i class="fas fa-server text-green-600 text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg">Resultados Medibles</h3>
+                        <h3 class="font-bold text-lg">Sistemas de Misión Crítica</h3>
                     </div>
-                    <p class="text-gray-600">Proyectos con impacto comprobado: mejoras de 35% en rendimiento, satisfacción de usuarios 4.8⭐</p>
+                    <p class="text-gray-600">Desarrollo de plataformas de alta disponibilidad: conteos electorales en
+                        tiempo real, monitoreo legislativo y gestión de agua potable.</p>
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-purple-600">
                     <div class="flex items-center mb-4">
                         <div class="bg-purple-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-brain text-purple-600 text-2xl"></i>
+                            <i class="fas fa-mobile-alt text-purple-600 text-2xl"></i>
                         </div>
-                        <h3 class="font-bold text-lg">Innovación & Tecnología</h3>
+                        <h3 class="font-bold text-lg">Soluciones 360°</h3>
                     </div>
-                    <p class="text-gray-600">Especialista en arquitectura moderna, APIs escalables, seguridad web y buenas prácticas de desarrollo.</p>
+                    <p class="text-gray-600">Capacidad técnica para entregar ecosistemas completos: Portales Web, APIs
+                        RESTful y Aplicaciones Móviles integradas.</p>
                 </div>
             </div>
 
@@ -183,314 +294,409 @@
                     <p class="text-gray-600 font-semibold">Años de Experiencia</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-green-600 mb-2">50+</p>
-                    <p class="text-gray-600 font-semibold">Proyectos Completados</p>
+                    <p class="text-4xl font-bold text-green-600 mb-2">20+</p>
+                    <p class="text-gray-600 font-semibold">Proyectos Exitosos</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-purple-600 mb-2">100K+</p>
-                    <p class="text-gray-600 font-semibold">Usuarios Impactados</p>
+                    <p class="text-4xl font-bold text-purple-600 mb-2">250K+</p>
+                    <p class="text-gray-600 font-semibold">Ciudadanos Atendidos</p>
                 </div>
                 <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-orange-600 mb-2">99.8%</p>
-                    <p class="text-gray-600 font-semibold">Uptime en Producción</p>
+                    <p class="text-4xl font-bold text-orange-600 mb-2">6+</p>
+                    <p class="text-gray-600 font-semibold">Instituciones de Gobierno</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Filtros de Proyectos -->
-    <section class="bg-gray-100 py-12 px-6">
-        <div class="max-w-6xl mx-auto">
-            <h3 class="text-center font-semibold text-gray-700 mb-6">Filtrar por tecnología:</h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                <button class="filter-btn px-4 py-2 rounded-full bg-white border-2 border-blue-600 text-blue-600 font-semibold cursor-pointer hover:bg-blue-50 transition" data-filter="all">Todos</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="laravel">Laravel</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="javascript">JavaScript</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="mysql">MySQL/MariaDB</button>
-                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="apis">APIs REST</button>
-            </div>
-        </div>
-    </section>
+
 
     <!-- Proyectos -->
     <section id="proyectos" class="max-w-6xl mx-auto py-16 px-6">
         <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
-        
+
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            <!-- Proyecto 1 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,apis,mysql">
-                <div class="bg-gradient-to-r from-blue-500 to-blue-700 h-32 flex items-center justify-center">
-                    <i class="fas fa-chart-line text-white text-5xl"></i>
+            <!-- Proyecto: Sistema de Monitoreo Legislativo -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/monitoreo-legislativo.png" alt="Sistema de Monitoreo Legislativo"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-blue-700">Portal Estadístico UAT</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma de visualización de datos estratégicos con mapas interactivos para toma de decisiones universitarias.</p>
-                    
-                    <div class="mb-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-                        <p class="text-xs font-semibold text-blue-900">Impacto:</p>
-                        <p class="text-sm text-blue-800">Decisiones basadas en datos para 5,000+ estudiantes</p>
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Sistema de Monitoreo Legislativo</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma para seguimiento, análisis y visualización de
+                        iniciativas, dictámenes y actividad parlamentaria en tiempo real.<br><a href="#" target="_blank"
+                            class="text-indigo-700 font-semibold">Ver sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Ciudad Madero -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/ciudadmadero.png" alt="Ciudad Madero"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
                     </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
-                        <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded">Google Maps API</span>
-                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2 py-1 rounded">MySQL</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-green-700">Ciudad Madero (2016-2018)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Portal institucional del Gobierno Municipal de Ciudad Madero.
+                        Transparencia, servicios y noticias.<br><a href="https://ciudadmadero.gob.mx" target="_blank"
+                            class="text-green-700 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: COMAPA Nuevo Laredo -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/comapa-nl.png" alt="COMAPA Nuevo Laredo"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
                     </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-blue-700">COMAPA Nuevo Laredo (2021)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Portal institucional para la gestión y consulta de servicios
+                        de agua potable y drenaje.<br><a href="https://www.comapanuevolaredo.gob.mx/sitio/"
+                            target="_blank" class="text-blue-600 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Control Escolar CECATI 96 -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/cecati96.png" alt="CECati 96"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-green-700">Control Escolar CECATI 96</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sistema de gestión escolar para el CECATI 96, administración
+                        de alumnos, cursos y calificaciones.<br><a href="https://www.cecati096.com.mx/" target="_blank"
+                            class="text-green-700 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Conteos Electorales (Eprendy) -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/conteo-electoral.png" alt="Conteos Electorales"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Conteos Electorales</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sistema de conteo rápido y difusión de resultados electorales
+                        en tiempo real.<br><a href="https://conteo.eprendy.com/" target="_blank"
+                            class="text-yellow-700 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: DIF Madero -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/difmadero.png" alt="DIF Madero"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-pink-700">DIF Madero 2016-2018</h3>
+                    <p class="text-gray-600 text-sm mb-4">Portal oficial del Sistema DIF de Ciudad Madero. Información,
+                        servicios y transparencia.<br><a href="https://difmadero.gob.mx" target="_blank"
+                            class="text-pink-600 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Jamarq Creador de Contenido -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/jamarq.png" alt="Jamarq Creador de Contenido"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-purple-700">Jamarq Creador de Contenido</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma personal y portafolio digital para Jamarq, creador
+                        de contenido multimedia, videos y streaming.<br><a href="#" target="_blank"
+                            class="text-purple-700 font-semibold">Ver sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Manuel Canales Diputado 2020 -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/manuelcanales.png" alt="Manuel Canales Diputado 2020"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800">Manuel Canales Diputado (2020)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sitio web de campaña y plataforma de comunicación para el
+                        diputado Manuel Canales. Difusión de propuestas, noticias y contacto ciudadano.<br><a href="#"
+                            target="_blank" class="text-blue-800 font-semibold">Ver sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Observatorio UAT -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/observatorio.png" alt="Observatorio UAT"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Observatorio UAT</h3>
+                    <p class="text-gray-600 text-sm mb-4">Portal estadístico institucional para la visualización de
+                        datos estratégicos y mapas interactivos.<br><a href="https://observatorio.uat.edu.mx/"
+                            target="_blank" class="text-indigo-600 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: ORT México -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/ort-mexico.png" alt="ORT México"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-blue-800">ORT México</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sitio institucional para la red educativa ORT México.<br><a
+                            href="https://ort.com.mx/" target="_blank" class="text-blue-800 font-semibold">Visitar
+                            sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: ORT Noticias -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/ort-noticias.png" alt="ORT Noticias"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-red-700">ORT Noticias</h3>
+                    <p class="text-gray-600 text-sm mb-4">Portal de noticias y radio en vivo para la comunidad de
+                        Tamaulipas.<br><a href="https://ortnoticias.com.mx/" target="_blank"
+                            class="text-red-700 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: SITAM Tamaulipas -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/sitam.png" alt="SITAM Tamaulipas"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-slate-800">SITAM Tamaulipas</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma integral para servidores públicos del Gobierno de
+                        Tamaulipas. Arquitectura monolítica y de microservicios para homologación de usuarios, cuentas,
+                        correo y servicios internos.<br><a href="https://sitam.tamaulipas.gob.mx/home" target="_blank"
+                            class="text-slate-800 font-semibold">Visitar sitio</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: Soy PJ Tamaulipas -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/soypj.png" alt="Soy PJ Tamaulipas"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-gray-800">Soy PJ Tamaulipas (App móvil)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Aplicación móvil oficial del Poder Judicial de Tamaulipas para
+                        consulta de expedientes y servicios.<br><a
+                            href="https://play.google.com/store/apps/details?id=mx.gob.pjetam.soypjtamaulipas&hl=es_MX"
+                            target="_blank" class="text-blue-900 font-semibold">Ver en Google Play</a></p>
+                </div>
+            </div>
+            <!-- Proyecto: StrategyMKT -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/strategymkt.png" alt="StrategyMKT"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-pink-700">StrategyMKT</h3>
+                    <p class="text-gray-600 text-sm mb-4">Agencia de marketing digital con soluciones personalizadas
+                        para empresas.<br><a href="https://www.strategymkt.com/" target="_blank"
+                            class="text-pink-600 font-semibold">Visitar sitio</a></p>
                 </div>
             </div>
 
-            <!-- Proyecto 2 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,apis,mysql">
-                <div class="bg-gradient-to-r from-orange-500 to-red-600 h-32 flex items-center justify-center">
-                    <i class="fas fa-cogs text-white text-5xl"></i>
+
+            <!-- Proyecto: DWash (Eprendy) -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/dwash.png" alt="DWash"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-orange-700">Sistema Integral Estatal</h3>
-                    <p class="text-gray-600 text-sm mb-4">Software institucional para gestión centralizada que optimizó tiempos de respuesta y eficiencia operativa.</p>
-                    
-                    <div class="mb-4 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
-                        <p class="text-xs font-semibold text-orange-900">Impacto:</p>
-                        <p class="text-sm text-orange-800">35% de mejora en respuesta | 18,000 usuarios</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
-                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">MariaDB</span>
-                        <span class="text-xs font-bold bg-red-100 text-red-800 px-2 py-1 rounded">Optimización</span>
-                    </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                    <h3 class="font-bold text-lg mb-2 text-cyan-700">DWash (POS)</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sistema punto de venta para autolavados, gestión de servicios
+                        y ventas.<br><a href="https://dwash.eprendy.com/" target="_blank"
+                            class="text-cyan-700 font-semibold">Visitar sitio</a></p>
                 </div>
             </div>
 
-            <!-- Proyecto 3 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="javascript,apis">
-                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-32 flex items-center justify-center">
-                    <i class="fab fa-js text-white text-5xl"></i>
+            <!-- Proyecto: Eprendy -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/eprendy.png" alt="Eprendy"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Dashboard Interactivo</h3>
-                    <p class="text-gray-600 text-sm mb-4">Interfaz responsiva con gráficos dinámicos en tiempo real para monitoreo de métricas clave.</p>
-                    
-                    <div class="mb-4 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
-                        <p class="text-xs font-semibold text-yellow-900">Impacto:</p>
-                        <p class="text-sm text-yellow-800">Carga 60% más rápida | UX mejorada</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">APIs REST</span>
-                        <span class="text-xs font-bold bg-pink-100 text-pink-800 px-2 py-1 rounded">D3.js</span>
-                    </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                    <h3 class="font-bold text-lg mb-2 text-green-700">Eprendy</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma educativa digital para cursos y capacitaciones
+                        online.<br><a href="https://eprendy.com" target="_blank"
+                            class="text-green-600 font-semibold">Visitar sitio</a></p>
                 </div>
             </div>
 
-            <!-- Proyecto 4 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,mysql,apis">
-                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-32 flex items-center justify-center">
-                    <i class="fas fa-database text-white text-5xl"></i>
+            <!-- Proyecto: Grupo M Radio Móvil -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/grupomradio.png" alt="Grupo M Radio Móvil"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-green-700">Sistema de Gestión CRM</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma CRM escalable con automatización de procesos y gestión de clientes integrada.</p>
-                    
-                    <div class="mb-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
-                        <p class="text-xs font-semibold text-green-900">Impacto:</p>
-                        <p class="text-sm text-green-800">500+ contactos gestionados | 40% más productivos</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
-                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2 py-1 rounded">MySQL</span>
-                        <span class="text-xs font-bold bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Automatización</span>
-                    </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Grupo M Radio Móvil</h3>
+                    <p class="text-gray-600 text-sm mb-4">Aplicación web para streaming de radio y acceso a contenidos
+                        multimedia.<br><a href="https://www.grupomradio.mx/movil/" target="_blank"
+                            class="text-yellow-600 font-semibold">Visitar sitio</a></p>
                 </div>
             </div>
-
-            <!-- Proyecto 5 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="javascript,apis">
-                <div class="bg-gradient-to-r from-pink-500 to-rose-600 h-32 flex items-center justify-center">
-                    <i class="fas fa-mobile-alt text-white text-5xl"></i>
+            <!-- Proyecto: Vive Fisioterapia -->
+            <div
+                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
+                <div class="relative group cursor-pointer">
+                    <img src="images/vivefisioterapia.png" alt="Vive Fisioterapia"
+                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
+                        onclick="openImageModal(this.src)">
+                    <div
+                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
+                        <i class="fas fa-search-plus text-white text-3xl"></i>
+                    </div>
                 </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-pink-700">Aplicación Móvil Responsiva</h3>
-                    <p class="text-gray-600 text-sm mb-4">Aplicación web progresiva con funcionalidad offline y sincronización en tiempo real.</p>
-                    
-                    <div class="mb-4 p-3 bg-pink-50 rounded-lg border-l-4 border-pink-500">
-                        <p class="text-xs font-semibold text-pink-900">Impacto:</p>
-                        <p class="text-sm text-pink-800">3,000+ descargas | Ratings 4.8⭐</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">PWA</span>
-                        <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded">APIs REST</span>
-                    </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                    <h3 class="font-bold text-lg mb-2 text-teal-700">Vive Fisioterapia</h3>
+                    <p class="text-gray-600 text-sm mb-4">Sitio web profesional para clínica de fisioterapia, con
+                        información de servicios y contacto.<br><a href="https://vivefisioterapia.com/" target="_blank"
+                            class="text-teal-600 font-semibold">Visitar sitio</a></p>
                 </div>
             </div>
-
-            <!-- Proyecto 6 -->
-            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,mysql">
-                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-32 flex items-center justify-center">
-                    <i class="fas fa-lock text-white text-5xl"></i>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Sistema de Seguridad</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma de autenticación y autorización con auditoría completa y cumplimiento normativo.</p>
-                    
-                    <div class="mb-4 p-3 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
-                        <p class="text-xs font-semibold text-indigo-900">Impacto:</p>
-                        <p class="text-sm text-indigo-800">100% de compliance | 0 vulnerabilidades</p>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
-                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">MariaDB</span>
-                        <span class="text-xs font-bold bg-red-100 text-red-800 px-2 py-1 rounded">Seguridad</span>
-                    </div>
-                    
-                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <script>
-        // Filtrado de proyectos
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const proyectoCards = document.querySelectorAll('.proyecto-card');
 
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const filterValue = this.getAttribute('data-filter');
-                
-                // Actualizar estilos de botones
-                filterButtons.forEach(btn => {
-                    btn.classList.remove('border-blue-600', 'text-blue-600', 'bg-blue-50');
-                    btn.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
-                });
-                this.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
-                this.classList.add('border-blue-600', 'text-blue-600', 'bg-blue-50');
-                
-                // Filtrar proyectos
-                proyectoCards.forEach(card => {
-                    if (filterValue === 'all') {
-                        card.style.display = 'block';
-                        setTimeout(() => card.classList.add('animate-fade-in'), 10);
-                    } else {
-                        const tags = card.getAttribute('data-tags').split(',');
-                        if (tags.includes(filterValue)) {
-                            card.style.display = 'block';
-                            setTimeout(() => card.classList.add('animate-fade-in'), 10);
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    }
-                });
-            });
-        });
-    </script>
 
-    <style>
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fadeIn 0.3s ease-in-out;
-        }
-    </style>
 
-    <!-- Testimonios -->
-    <section class="bg-white py-16 px-6">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">Testimonios de Clientes</h2>
-            
-            <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border-l-4 border-blue-500">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">"Eduardo desarrolló una solución que transformó completamente nuestros procesos. Su atención al detalle y capacidad de resolver problemas complejos fue excepcional."</p>
-                    <p class="font-bold text-gray-800">Director Tecnológico</p>
-                    <p class="text-gray-600 text-sm">Empresa Estatal de Servicios</p>
-                </div>
 
-                <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-lg border-l-4 border-green-500">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">"Entregó el proyecto a tiempo y con una calidad superior. El sistema ha reducido nuestros costos operacionales significativamente. Altamente recomendado."</p>
-                    <p class="font-bold text-gray-800">Gerente de Proyectos</p>
-                    <p class="text-gray-600 text-sm">Universidad Autónoma de Tamaulipas</p>
-                </div>
 
-                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border-l-4 border-purple-500">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">"Un profesional con una profunda comprensión de tecnología y negocios. Realizó mejoras críticas en seguridad y rendimiento de nuestras aplicaciones."</p>
-                    <p class="font-bold text-gray-800">CTO</p>
-                    <p class="text-gray-600 text-sm">Startup Tecnológica</p>
-                </div>
-
-                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-lg border-l-4 border-orange-500">
-                    <div class="flex items-center mb-4">
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                        <i class="fas fa-star text-yellow-400 text-xl"></i>
-                    </div>
-                    <p class="text-gray-700 mb-4 italic">"Su liderazgo técnico fue fundamental para nuestro equipo. No solo codifica bien, sino que entiende la visión del negocio. Líder excepcional."</p>
-                    <p class="font-bold text-gray-800">VP de Desarrollo</p>
-                    <p class="text-gray-600 text-sm">Empresa de Software</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- CTA Final -->
     <section class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl font-bold mb-6">¿Listo para llevar tu proyecto al siguiente nivel?</h2>
-            <p class="text-xl text-blue-200 mb-8">Tengo experiencia en arquitectura escalable, optimización de rendimiento y desarrollo de soluciones que crecen con tu negocio.</p>
-            
+            <p class="text-xl text-blue-200 mb-8">Tengo experiencia en arquitectura escalable, optimización de
+                rendimiento y desarrollo de soluciones que crecen con tu negocio.</p>
+
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:edwardo.mtz@gmail.com?subject=Propuesta%20de%20Proyecto" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fas fa-envelope mr-2"></i> Contactame Ahora
+                <a href="mailto:edwardo.mtz@gmail.com?subject=Propuesta%20de%20Proyecto"
+                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Contáctame Ahora
                 </a>
-                <a href="https://linkedin.com/in/aemartinezc" target="_blank" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                <a href="https://linkedin.com/in/aemartinezc" target="_blank"
+                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
                     <i class="fab fa-linkedin mr-2"></i> LinkedIn
                 </a>
-                <a href="https://github.com/aemartinezc" target="_blank" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                <a href="https://github.com/aemartinezc" target="_blank"
+                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
                     <i class="fab fa-github mr-2"></i> GitHub
                 </a>
             </div>
-            
-            <p class="text-gray-300 mt-8">Disponible para proyectos remotos, tiempo completo o consultoría especializada</p>
+
+            <p class="text-gray-300 mt-8">Disponible para proyectos remotos, tiempo completo o consultoría especializada
+            </p>
         </div>
     </section>
 
@@ -505,17 +711,23 @@
                 <div>
                     <h4 class="font-bold text-lg mb-4">Enlaces</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://linkedin.com/in/aemartinezc" target="_blank" class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
-                        <li><a href="https://github.com/aemartinezc" target="_blank" class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-github mr-2"></i> GitHub</a></li>
+                        <li><a href="https://linkedin.com/in/aemartinezc" target="_blank"
+                                class="text-gray-300 hover:text-blue-400 transition"><i
+                                    class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/aemartinezc" target="_blank"
+                                class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-github mr-2"></i>
+                                GitHub</a></li>
                     </ul>
                 </div>
                 <div>
                     <h4 class="font-bold text-lg mb-4">Disponibilidad</h4>
-                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Disponible para nuevos proyectos</p>
-                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Remoto, Tiempo completo o Consultoría</p>
+                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Disponible
+                        para nuevos proyectos</p>
+                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Remoto,
+                        Tiempo completo o Consultoría</p>
                 </div>
             </div>
-            
+
             <div class="border-t border-slate-700 pt-8 text-center">
                 <p class="text-gray-400">© 2026 Eduardo Martínez Castillo | Desarrollador Web Senior</p>
                 <p class="text-gray-500 text-sm mt-2">Transformando ideas en soluciones digitales de impacto</p>
@@ -523,5 +735,40 @@
         </div>
     </footer>
 
+    <script>
+        // Modal para ver imágenes grandes
+        function openImageModal(src) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modalImg.src = src;
+            modal.style.display = 'flex';
+            document.addEventListener('keydown', escCloseModal);
+        }
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            modal.style.display = 'none';
+            modalImg.src = '';
+            document.removeEventListener('keydown', escCloseModal);
+        }
+
+        // Evitar que el modal se cierre al hacer clic en la imagen
+        document.addEventListener('DOMContentLoaded', function () {
+            const modalImg = document.getElementById('modal-img');
+            if (modalImg) {
+                modalImg.addEventListener('click', function (event) {
+                    event.stopPropagation();
+                });
+            }
+        });
+
+        // Cerrar modal con Escape
+        function escCloseModal(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        }
+    </script>
 </body>
+
 </html>
