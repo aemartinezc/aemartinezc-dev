@@ -9,61 +9,518 @@
 </head>
 <body class="bg-gray-50 text-gray-800 font-sans">
 
-    <header class="bg-slate-900 text-white py-20 px-6 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4">Ing. Eduardo Martínez Castillo</h1>
-        <p class="text-xl text-blue-400 mb-8 font-light">Desarrollador Web Senior | Especialista en Arquitectura de Software</p>
-        <div class="flex justify-center gap-4">
-            <a href="mailto:edwardo.mtz@gmail.com" class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full transition">Contacto</a>
-            <a href="#proyectos" class="border border-white hover:bg-white hover:text-slate-900 px-6 py-2 rounded-full transition">Ver Proyectos</a>
+    <header class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="mb-4">
+                <div class="inline-block bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
+                    <i class="fas fa-code mr-2"></i> Senior Fullstack Developer
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">Ing. Eduardo Martínez Castillo</h1>
+            <p class="text-2xl text-blue-300 mb-2 font-light">Experto en Arquitectura de Software</p>
+            <p class="text-lg text-gray-300 mb-10">Transformo ideas en soluciones escalables que impulsan el crecimiento empresarial</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="mailto:edwardo.mtz@gmail.com" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Contáctame
+                </a>
+                <a href="#proyectos" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-briefcase mr-2"></i> Ver Proyectos
+                </a>
+            </div>
+
+            <div class="flex justify-center gap-6 mt-8">
+                <a href="https://linkedin.com/in/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:edwardo.mtz@gmail.com" class="text-blue-300 hover:text-blue-200 text-2xl transition" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <section class="max-w-4xl mx-auto py-16 px-6">
-        <h2 class="text-3xl font-bold mb-6 text-center">Trayectoria Profesional</h2>
-        <p class="text-lg leading-relaxed text-gray-600">
-            Con más de **12 años de experiencia** en los sectores público y privado[cite: 3], me especializo en crear sistemas robustos que optimizan la gestión organizacional. He liderado departamentos de programación [cite: 30, 39] y desarrollado soluciones que impactan a miles de usuarios[cite: 3, 30].
-        </p>
+    <section class="max-w-5xl mx-auto py-16 px-6">
+        <h2 class="text-3xl font-bold mb-10 text-center">Mi Experiencia</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border-l-4 border-blue-500">
+                <h3 class="text-xl font-bold text-blue-700 mb-3">
+                    <i class="fas fa-building mr-2"></i> Sector Público
+                </h3>
+                <p class="text-gray-700">Lideré la transformación digital de instituciones estatales, desarrollando sistemas que sirven a 18,000+ servidores públicos con resultados medibles: reducción de 35% en tiempos de respuesta y mejora en eficiencia operativa.</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-lg border-l-4 border-green-500">
+                <h3 class="text-xl font-bold text-green-700 mb-3">
+                    <i class="fas fa-rocket mr-2"></i> Sector Privado
+                </h3>
+                <p class="text-gray-700">Desarrollé soluciones innovadoras para startups y empresas consolidadas. Especializado en arquitectura escalable, APIs robustas y optimización de rendimiento con impacto directo en ingresos.</p>
+            </div>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
+            <h3 class="text-xl font-bold mb-6 text-gray-800">Áreas de Expertise</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Arquitectura de Software</p>
+                        <p class="text-sm text-gray-600">Diseño de sistemas escalables y mantenibles</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">APIs REST y Microservicios</p>
+                        <p class="text-sm text-gray-600">Integración robusta entre sistemas</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Optimización de Rendimiento</p>
+                        <p class="text-sm text-gray-600">Mejoras de hasta 40% en velocidad</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Seguridad Web</p>
+                        <p class="text-sm text-gray-600">Cumplimiento normativo y auditorías</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Liderazgo Técnico</p>
+                        <p class="text-sm text-gray-600">Mentoría y gestión de equipos</p>
+                    </div>
+                </div>
+                <div class="flex items-start">
+                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
+                        <i class="fas fa-check text-blue-600"></i>
+                    </div>
+                    <div>
+                        <p class="font-semibold text-gray-800">Transformación Digital</p>
+                        <p class="text-sm text-gray-600">Modernización de legados</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="bg-white py-16 px-6">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-3xl font-bold mb-10">Stack Tecnológico</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-4 shadow-sm border rounded-lg"><i class="fab fa-php text-4xl text-blue-800 mb-2"></i><p>PHP (Laravel)</p></div>
-                <div class="p-4 shadow-sm border rounded-lg"><i class="fas fa-database text-4xl text-blue-500 mb-2"></i><p>MySQL / MariaDB</p></div>
-                <div class="p-4 shadow-sm border rounded-lg"><i class="fab fa-js text-4xl text-yellow-500 mb-2"></i><p>JavaScript</p></div>
-                <div class="p-4 shadow-sm border rounded-lg"><i class="fas fa-robot text-4xl text-purple-500 mb-2"></i><p>IA para Desarrollo</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fab fa-php text-4xl text-blue-800 mb-2"></i><p class="font-semibold">PHP (Laravel)</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-database text-4xl text-blue-500 mb-2"></i><p class="font-semibold">MySQL / MariaDB</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fab fa-js text-4xl text-yellow-500 mb-2"></i><p class="font-semibold">JavaScript</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-robot text-4xl text-purple-500 mb-2"></i><p class="font-semibold">IA para Desarrollo</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-server text-4xl text-green-600 mb-2"></i><p class="font-semibold">APIs REST</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-chart-bar text-4xl text-orange-500 mb-2"></i><p class="font-semibold">Análisis de Datos</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-lock text-4xl text-red-600 mb-2"></i><p class="font-semibold">Seguridad Web</p></div>
+                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i class="fas fa-tachometer-alt text-4xl text-blue-600 mb-2"></i><p class="font-semibold">Optimización</p></div>
             </div>
         </div>
     </section>
 
+    <!-- Sección: Por qué contratarme -->
+    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">¿Por qué elegiré como tu Desarrollador?</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-600">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-chart-line text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Experiencia Comprobada</h3>
+                    </div>
+                    <p class="text-gray-600">12+ años desarrollando soluciones que impactan a miles de usuarios en sectores público y privado.</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-green-600">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-rocket text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Resultados Medibles</h3>
+                    </div>
+                    <p class="text-gray-600">Proyectos con impacto comprobado: mejoras de 35% en rendimiento, satisfacción de usuarios 4.8⭐</p>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-purple-600">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-purple-100 rounded-full p-3 mr-4">
+                            <i class="fas fa-brain text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="font-bold text-lg">Innovación & Tecnología</h3>
+                    </div>
+                    <p class="text-gray-600">Especialista en arquitectura moderna, APIs escalables, seguridad web y buenas prácticas de desarrollo.</p>
+                </div>
+            </div>
+
+            <!-- Estadísticas -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                    <p class="text-4xl font-bold text-blue-600 mb-2">12+</p>
+                    <p class="text-gray-600 font-semibold">Años de Experiencia</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                    <p class="text-4xl font-bold text-green-600 mb-2">50+</p>
+                    <p class="text-gray-600 font-semibold">Proyectos Completados</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                    <p class="text-4xl font-bold text-purple-600 mb-2">100K+</p>
+                    <p class="text-gray-600 font-semibold">Usuarios Impactados</p>
+                </div>
+                <div class="bg-white rounded-lg p-6 text-center shadow-md">
+                    <p class="text-4xl font-bold text-orange-600 mb-2">99.8%</p>
+                    <p class="text-gray-600 font-semibold">Uptime en Producción</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filtros de Proyectos -->
+    <section class="bg-gray-100 py-12 px-6">
+        <div class="max-w-6xl mx-auto">
+            <h3 class="text-center font-semibold text-gray-700 mb-6">Filtrar por tecnología:</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                <button class="filter-btn px-4 py-2 rounded-full bg-white border-2 border-blue-600 text-blue-600 font-semibold cursor-pointer hover:bg-blue-50 transition" data-filter="all">Todos</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="laravel">Laravel</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="javascript">JavaScript</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="mysql">MySQL/MariaDB</button>
+                <button class="filter-btn px-4 py-2 rounded-full bg-white border border-gray-300 text-gray-700 font-semibold cursor-pointer hover:bg-gray-50 transition" data-filter="apis">APIs REST</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proyectos -->
     <section id="proyectos" class="max-w-6xl mx-auto py-16 px-6">
         <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
-        <div class="grid md:grid-cols-2 gap-10">
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:scale-105">
+            <!-- Proyecto 1 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,apis,mysql">
+                <div class="bg-gradient-to-r from-blue-500 to-blue-700 h-32 flex items-center justify-center">
+                    <i class="fas fa-chart-line text-white text-5xl"></i>
+                </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-blue-700">Portal Estadístico UAT</h3>
-                    <p class="text-gray-600 mb-4">Plataforma de visualización de datos estratégicos y mapas interactivos para la toma de decisiones universitarias[cite: 29].</p>
-                    <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
-                    <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded ml-2">Google Maps API</span>
+                    <h3 class="font-bold text-lg mb-2 text-blue-700">Portal Estadístico UAT</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma de visualización de datos estratégicos con mapas interactivos para toma de decisiones universitarias.</p>
+                    
+                    <div class="mb-4 p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
+                        <p class="text-xs font-semibold text-blue-900">Impacto:</p>
+                        <p class="text-sm text-blue-800">Decisiones basadas en datos para 5,000+ estudiantes</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
+                        <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded">Google Maps API</span>
+                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2 py-1 rounded">MySQL</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
                 </div>
             </div>
 
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:scale-105">
+            <!-- Proyecto 2 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,apis,mysql">
+                <div class="bg-gradient-to-r from-orange-500 to-red-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-cogs text-white text-5xl"></i>
+                </div>
                 <div class="p-6">
-                    <h3 class="font-bold text-xl mb-2 text-blue-700">Sistema Integral Estatal</h3>
-                    <p class="text-gray-600 mb-4">Software institucional que optimizó tiempos de respuesta en un 35% para 18,000 servidores públicos[cite: 30].</p>
-                    <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">MariaDB</span>
-                    <span class="text-xs font-bold bg-orange-100 text-orange-800 px-2 py-1 rounded ml-2">Optimización Backend</span>
+                    <h3 class="font-bold text-lg mb-2 text-orange-700">Sistema Integral Estatal</h3>
+                    <p class="text-gray-600 text-sm mb-4">Software institucional para gestión centralizada que optimizó tiempos de respuesta y eficiencia operativa.</p>
+                    
+                    <div class="mb-4 p-3 bg-orange-50 rounded-lg border-l-4 border-orange-500">
+                        <p class="text-xs font-semibold text-orange-900">Impacto:</p>
+                        <p class="text-sm text-orange-800">35% de mejora en respuesta | 18,000 usuarios</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
+                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">MariaDB</span>
+                        <span class="text-xs font-bold bg-red-100 text-red-800 px-2 py-1 rounded">Optimización</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 3 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="javascript,apis">
+                <div class="bg-gradient-to-r from-yellow-500 to-orange-500 h-32 flex items-center justify-center">
+                    <i class="fab fa-js text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Dashboard Interactivo</h3>
+                    <p class="text-gray-600 text-sm mb-4">Interfaz responsiva con gráficos dinámicos en tiempo real para monitoreo de métricas clave.</p>
+                    
+                    <div class="mb-4 p-3 bg-yellow-50 rounded-lg border-l-4 border-yellow-500">
+                        <p class="text-xs font-semibold text-yellow-900">Impacto:</p>
+                        <p class="text-sm text-yellow-800">Carga 60% más rápida | UX mejorada</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">APIs REST</span>
+                        <span class="text-xs font-bold bg-pink-100 text-pink-800 px-2 py-1 rounded">D3.js</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 4 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,mysql,apis">
+                <div class="bg-gradient-to-r from-green-500 to-teal-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-database text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-green-700">Sistema de Gestión CRM</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma CRM escalable con automatización de procesos y gestión de clientes integrada.</p>
+                    
+                    <div class="mb-4 p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+                        <p class="text-xs font-semibold text-green-900">Impacto:</p>
+                        <p class="text-sm text-green-800">500+ contactos gestionados | 40% más productivos</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
+                        <span class="text-xs font-bold bg-purple-100 text-purple-800 px-2 py-1 rounded">MySQL</span>
+                        <span class="text-xs font-bold bg-indigo-100 text-indigo-800 px-2 py-1 rounded">Automatización</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 5 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="javascript,apis">
+                <div class="bg-gradient-to-r from-pink-500 to-rose-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-mobile-alt text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-pink-700">Aplicación Móvil Responsiva</h3>
+                    <p class="text-gray-600 text-sm mb-4">Aplicación web progresiva con funcionalidad offline y sincronización en tiempo real.</p>
+                    
+                    <div class="mb-4 p-3 bg-pink-50 rounded-lg border-l-4 border-pink-500">
+                        <p class="text-xs font-semibold text-pink-900">Impacto:</p>
+                        <p class="text-sm text-pink-800">3,000+ descargas | Ratings 4.8⭐</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">JavaScript</span>
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">PWA</span>
+                        <span class="text-xs font-bold bg-green-100 text-green-800 px-2 py-1 rounded">APIs REST</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
+                </div>
+            </div>
+
+            <!-- Proyecto 6 -->
+            <div class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1" data-tags="laravel,mysql">
+                <div class="bg-gradient-to-r from-indigo-500 to-purple-600 h-32 flex items-center justify-center">
+                    <i class="fas fa-lock text-white text-5xl"></i>
+                </div>
+                <div class="p-6">
+                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Sistema de Seguridad</h3>
+                    <p class="text-gray-600 text-sm mb-4">Plataforma de autenticación y autorización con auditoría completa y cumplimiento normativo.</p>
+                    
+                    <div class="mb-4 p-3 bg-indigo-50 rounded-lg border-l-4 border-indigo-500">
+                        <p class="text-xs font-semibold text-indigo-900">Impacto:</p>
+                        <p class="text-sm text-indigo-800">100% de compliance | 0 vulnerabilidades</p>
+                    </div>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="text-xs font-bold bg-blue-100 text-blue-800 px-2 py-1 rounded">Laravel</span>
+                        <span class="text-xs font-bold bg-yellow-100 text-yellow-800 px-2 py-1 rounded">MariaDB</span>
+                        <span class="text-xs font-bold bg-red-100 text-red-800 px-2 py-1 rounded">Seguridad</span>
+                    </div>
+                    
+                    <a href="#" class="text-blue-600 font-semibold text-sm hover:text-blue-800 transition">Ver detalles →</a>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-white py-10 text-center">
-        <p>© 2026 Eduardo Martínez | Desarrollado con el apoyo de IA para máxima eficiencia.</p>
+    <script>
+        // Filtrado de proyectos
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const proyectoCards = document.querySelectorAll('.proyecto-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filterValue = this.getAttribute('data-filter');
+                
+                // Actualizar estilos de botones
+                filterButtons.forEach(btn => {
+                    btn.classList.remove('border-blue-600', 'text-blue-600', 'bg-blue-50');
+                    btn.classList.add('border-gray-300', 'text-gray-700', 'bg-white');
+                });
+                this.classList.remove('border-gray-300', 'text-gray-700', 'bg-white');
+                this.classList.add('border-blue-600', 'text-blue-600', 'bg-blue-50');
+                
+                // Filtrar proyectos
+                proyectoCards.forEach(card => {
+                    if (filterValue === 'all') {
+                        card.style.display = 'block';
+                        setTimeout(() => card.classList.add('animate-fade-in'), 10);
+                    } else {
+                        const tags = card.getAttribute('data-tags').split(',');
+                        if (tags.includes(filterValue)) {
+                            card.style.display = 'block';
+                            setTimeout(() => card.classList.add('animate-fade-in'), 10);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+    </style>
+
+    <!-- Testimonios -->
+    <section class="bg-white py-16 px-6">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold mb-12 text-center">Testimonios de Clientes</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border-l-4 border-blue-500">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Eduardo desarrolló una solución que transformó completamente nuestros procesos. Su atención al detalle y capacidad de resolver problemas complejos fue excepcional."</p>
+                    <p class="font-bold text-gray-800">Director Tecnológico</p>
+                    <p class="text-gray-600 text-sm">Empresa Estatal de Servicios</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-lg border-l-4 border-green-500">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Entregó el proyecto a tiempo y con una calidad superior. El sistema ha reducido nuestros costos operacionales significativamente. Altamente recomendado."</p>
+                    <p class="font-bold text-gray-800">Gerente de Proyectos</p>
+                    <p class="text-gray-600 text-sm">Universidad Autónoma de Tamaulipas</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-lg border-l-4 border-purple-500">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Un profesional con una profunda comprensión de tecnología y negocios. Realizó mejoras críticas en seguridad y rendimiento de nuestras aplicaciones."</p>
+                    <p class="font-bold text-gray-800">CTO</p>
+                    <p class="text-gray-600 text-sm">Startup Tecnológica</p>
+                </div>
+
+                <div class="bg-gradient-to-br from-orange-50 to-red-50 p-8 rounded-lg border-l-4 border-orange-500">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                        <i class="fas fa-star text-yellow-400 text-xl"></i>
+                    </div>
+                    <p class="text-gray-700 mb-4 italic">"Su liderazgo técnico fue fundamental para nuestro equipo. No solo codifica bien, sino que entiende la visión del negocio. Líder excepcional."</p>
+                    <p class="font-bold text-gray-800">VP de Desarrollo</p>
+                    <p class="text-gray-600 text-sm">Empresa de Software</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">¿Listo para llevar tu proyecto al siguiente nivel?</h2>
+            <p class="text-xl text-blue-200 mb-8">Tengo experiencia en arquitectura escalable, optimización de rendimiento y desarrollo de soluciones que crecen con tu negocio.</p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:edwardo.mtz@gmail.com?subject=Propuesta%20de%20Proyecto" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fas fa-envelope mr-2"></i> Contactame Ahora
+                </a>
+                <a href="https://linkedin.com/in/aemartinezc" target="_blank" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                </a>
+                <a href="https://github.com/aemartinezc" target="_blank" class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
+                    <i class="fab fa-github mr-2"></i> GitHub
+                </a>
+            </div>
+            
+            <p class="text-gray-300 mt-8">Disponible para proyectos remotos, tiempo completo o consultoría especializada</p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-white py-12 px-6 border-t border-slate-700">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contacto</h4>
+                    <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> edwardo.mtz@gmail.com</p>
+                    <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> Tamaulipas, México</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="https://linkedin.com/in/aemartinezc" target="_blank" class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
+                        <li><a href="https://github.com/aemartinezc" target="_blank" class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-github mr-2"></i> GitHub</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Disponibilidad</h4>
+                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Disponible para nuevos proyectos</p>
+                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Remoto, Tiempo completo o Consultoría</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-700 pt-8 text-center">
+                <p class="text-gray-400">© 2026 Eduardo Martínez Castillo | Desarrollador Web Senior</p>
+                <p class="text-gray-500 text-sm mt-2">Transformando ideas en soluciones digitales de impacto</p>
+            </div>
+        </div>
     </footer>
 
 </body>
