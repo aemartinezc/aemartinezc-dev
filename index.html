@@ -7,41 +7,342 @@
     <title>Eduardo Martínez | Senior Fullstack Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #0a0e27;
+            --bg-secondary: #151934;
+            --bg-tertiary: #1e2442;
+            --accent-primary: #00d4ff;
+            --accent-secondary: #7c3aed;
+            --accent-tertiary: #06b6d4;
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+            --gradient-3: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            overflow-x: hidden;
+        }
+
+        /* Progress Bar */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gradient-2);
+            z-index: 9999;
+            transition: width 0.2s ease;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-hover {
+            transition: all 0.3s ease;
+        }
+
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px 0 rgba(0, 212, 255, 0.2);
+        }
+
+        /* Animated Gradient Text */
+        .gradient-text {
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradient-shift 3s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* Fade In Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Glow Effect */
+        .glow {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5),
+                        0 0 40px rgba(124, 58, 237, 0.3);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .glow:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.8),
+                        0 0 60px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-2);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-primary);
+        }
+
+        /* Hero Avatar */
+        .hero-avatar {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-primary);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Button Styles */
+        .btn-primary {
+            background: var(--gradient-2);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-primary);
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: var(--bg-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: var(--gradient-2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.6);
+        }
+
+        /* Stats Counter */
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-2);
+            color: white;
+            border: none;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+
+        #back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.6);
+        }
+
+        #back-to-top.visible {
+            display: flex;
+        }
+
+        /* Project Filter */
+        .filter-btn {
+            padding: 10px 24px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gradient-2);
+            color: white;
+            border-color: transparent;
+        }
+
+        /* Project Card Hover */
+        .project-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        .project-card img {
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Particle Background */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
         /* Modal de imagen */
         #image-modal {
             display: none;
             position: fixed;
-            z-index: 1000;
+            z-index: 10000;
             left: 0;
             top: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(10, 14, 39, 0.95);
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(5px);
         }
 
         #image-modal img {
             max-width: 90vw;
             max-height: 80vh;
             border-radius: 1.2rem;
-            box-shadow: 0 8px 32px 0 #000a;
+            box-shadow: 0 8px 32px 0 rgba(0, 212, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         #image-modal .close-btn {
             position: absolute;
             top: 2rem;
             right: 2rem;
-            color: #fff;
+            color: var(--accent-primary);
             font-size: 2.5rem;
             cursor: pointer;
-            z-index: 1100;
-            transition: color 0.2s;
+            z-index: 10001;
+            transition: all 0.3s ease;
         }
 
         #image-modal .close-btn:hover {
-            color: #1f6feb;
+            color: white;
+            transform: rotate(90deg);
         }
 
         @keyframes fadeIn {
@@ -49,261 +350,416 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
+        @keyframes slideInFromLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInFromRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
         .animate-fade-in {
-            animation: fadeIn 0.3s ease-in-out;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .animate-slide-left {
+            animation: slideInFromLeft 0.8s ease-in-out;
+        }
+
+        .animate-slide-right {
+            animation: slideInFromRight 0.8s ease-in-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-avatar {
+                width: 140px;
+                height: 140px;
+            }
+            .stat-number {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
+    <!-- Progress Bar -->
+    <div id="progress-bar"></div>
 
-    <!-- Modal para imagen grande (debe ir aquí para estar dentro del body) -->
+    <!-- Back to Top Button -->
+    <button id="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Particles Background -->
+    <canvas id="particles"></canvas>
+
+    <!-- Modal para imagen grande -->
     <div id="image-modal" onclick="closeImageModal()">
         <span class="close-btn" onclick="closeImageModal(); event.stopPropagation();">&times;</span>
         <img id="modal-img" src="" alt="Vista previa proyecto">
     </div>
 
-    <header class="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 text-white py-24 px-6 text-center">
-        <div class="max-w-4xl mx-auto">
-            <div class="mb-4">
-                <div class="inline-block bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-semibold mb-4">
-                    <i class="fas fa-database mr-2"></i> Ingeniero en Sistemas | 12+ años
-                </div>
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/20 to-cyan-900/20"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <!-- Avatar -->
+            <div class="mb-8 animate-fade-in">
+                <img src="https://avatars.githubusercontent.com/u/42783636?v=4" 
+                     alt="Eduardo Martínez" 
+                     class="hero-avatar mx-auto">
             </div>
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Eduardo Martínez Castillo</h1>
-            <p class="text-2xl text-blue-200 mb-2 font-light">Especialista en Software Institucional y Arquitectura de
-                Bases de Datos</p>
-            <p class="text-lg text-gray-200 mb-10 max-w-2xl mx-auto">Más de 12 años de experiencia en el sector público
-                y privado, desarrollando soluciones digitales escalables, transparentes y alineadas a normativas legales
-                y de negocio. Experto en PHP (Laravel), JavaScript y MySQL/MariaDB, con historial probado en
-                optimización de procesos, reducción de tiempos de respuesta y atención a más de 100,000 usuarios.</p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="mailto:edwardo.mtz@gmail.com"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fas fa-envelope mr-2"></i> Contáctame
+
+            <!-- Badge -->
+            <div class="mb-6 animate-slide-left" style="animation-delay: 0.2s;">
+                <span class="glass px-6 py-3 rounded-full text-sm font-semibold inline-flex items-center gap-2">
+                    <i class="fas fa-code text-cyan-400"></i> 
+                    <span class="gradient-text">Senior Fullstack Developer</span>
+                </span>
+            </div>
+
+            <!-- Name -->
+            <h1 class="text-5xl md:text-7xl font-black mb-6 animate-slide-right" style="animation-delay: 0.4s;">
+                Eduardo Martínez <span class="gradient-text">Castillo</span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p class="text-xl md:text-2xl text-slate-300 mb-4 font-light max-w-3xl mx-auto animate-fade-in" style="animation-delay: 0.6s;">
+                Especialista en <span class="text-cyan-400 font-semibold">Software Institucional</span> y 
+                <span class="text-purple-400 font-semibold">Arquitectura de Bases de Datos</span>
+            </p>
+
+            <p class="text-base md:text-lg text-slate-400 mb-10 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.8s;">
+                +12 años transformando el sector público y privado con soluciones escalables que impactan a 
+                <span class="text-cyan-400 font-bold">250K+ usuarios</span>
+            </p>
+
+            <!-- CTAs -->
+            <div class="flex flex-col sm:flex-row justify-center gap-4 mb-12 animate-fade-in" style="animation-delay: 1s;">
+                <a href="mailto:edwardo.mtz@gmail.com" class="btn-primary glow">
+                    <i class="fas fa-envelope"></i> Contáctame
                 </a>
-                <a href="#proyectos"
-                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold px-8 py-3 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fas fa-briefcase mr-2"></i> Ver Proyectos
+                <a href="#proyectos" class="btn-secondary">
+                    <i class="fas fa-briefcase"></i> Ver Proyectos
                 </a>
             </div>
-            <div class="flex justify-center gap-6 mt-8">
-                <a href="https://linkedin.com/in/aemartinezc"
-                    class="text-blue-300 hover:text-blue-200 text-2xl transition" title="LinkedIn">
+
+            <!-- Social Links -->
+            <div class="flex justify-center gap-6 animate-fade-in" style="animation-delay: 1.2s;">
+                <a href="https://linkedin.com/in/aemartinezc" 
+                   class="w-12 h-12 rounded-full glass glass-hover flex items-center justify-center text-xl transition-all"
+                   target="_blank"
+                   title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/aemartinezc" class="text-blue-300 hover:text-blue-200 text-2xl transition"
-                    title="GitHub">
+                <a href="https://github.com/aemartinezc" 
+                   class="w-12 h-12 rounded-full glass glass-hover flex items-center justify-center text-xl transition-all"
+                   target="_blank"
+                   title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:edwardo.mtz@gmail.com" class="text-blue-300 hover:text-blue-200 text-2xl transition"
-                    title="Email">
+                <a href="mailto:edwardo.mtz@gmail.com" 
+                   class="w-12 h-12 rounded-full glass glass-hover flex items-center justify-center text-xl transition-all"
+                   title="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
+            </div>
+
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <i class="fas fa-chevron-down text-cyan-400 text-2xl"></i>
             </div>
         </div>
     </header>
 
+    <!-- Timeline de Experiencia -->
+    <section class="max-w-6xl mx-auto py-20 px-6">
+        <h2 class="text-4xl md:text-5xl font-black mb-4 text-center fade-in">
+            Trayectoria <span class="gradient-text">Profesional</span>
+        </h2>
+        <p class="text-center text-slate-400 mb-16 fade-in">12+ años transformando instituciones públicas y empresas privadas</p>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            <!-- Sector Público -->
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mr-4">
+                        <i class="fas fa-landmark text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-cyan-400">Sector Público</h3>
+                        <p class="text-slate-400 text-sm">Gobierno Digital</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">Poder Judicial de Tamaulipas</h4>
+                        <p class="text-slate-400 text-sm mb-2">2018 - 2024</p>
+                        <p class="text-slate-300">Lideré el desarrollo de <strong>SITAM</strong>, plataforma de servicios para 18,000+ servidores públicos. Arquitectura monolítica y microservicios con reducción del 35% en tiempos de respuesta.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">Sistema de Monitoreo Legislativo</h4>
+                        <p class="text-slate-400 text-sm mb-2">2020</p>
+                        <p class="text-slate-300">Plataforma en tiempo real para seguimiento de iniciativas parlamentarias con dashboards interactivos y análisis de datos.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">COMAPA Nuevo Laredo</h4>
+                        <p class="text-slate-400 text-sm mb-2">2021</p>
+                        <p class="text-slate-300">Portal institucional para gestión de agua potable atendiendo a 100,000+ ciudadanos.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">Gobierno Municipal Cd. Madero</h4>
+                        <p class="text-slate-400 text-sm mb-2">2016 - 2018</p>
+                        <p class="text-slate-300">Portal institucional y DIF con transparencia, servicios ciudadanos y gestión administrativa.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sector Privado -->
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mr-4">
+                        <i class="fas fa-rocket text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-400">Sector Privado</h3>
+                        <p class="text-slate-400 text-sm">Startups & Empresas</p>
+                    </div>
+                </div>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">Eprendy - Fundador</h4>
+                        <p class="text-slate-400 text-sm mb-2">2019 - Presente</p>
+                        <p class="text-slate-300">Plataforma educativa SaaS para cursos online. Desarrollo full-stack con Laravel, Vue.js y arquitectura escalable.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">DWash POS System</h4>
+                        <p class="text-slate-400 text-sm mb-2">2020</p>
+                        <p class="text-slate-300">Sistema punto de venta para autolavados con gestión de servicios, inventario y reportes en tiempo real.</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">StrategyMKT</h4>
+                        <p class="text-slate-400 text-sm mb-2">2021</p>
+                        <p class="text-slate-300">Sitio corporativo para agencia de marketing digital con CMS personalizado.</p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h4 class="text-lg font-bold mb-2">ORT México & Noticias</h4>
+                        <p class="text-slate-400 text-sm mb-2">2019</p>
+                        <p class="text-slate-300">Portales institucionales y de noticias con streaming de radio en vivo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estadísticas Animadas -->
+    <section class="max-w-6xl mx-auto py-20 px-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="glass glass-hover rounded-2xl p-8 text-center fade-in">
+                <div class="stat-number mb-2" data-target="12">0</div>
+                <p class="text-slate-400 font-semibold">Años de Experiencia</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-8 text-center fade-in">
+                <div class="stat-number mb-2" data-target="20">0</div>
+                <p class="text-slate-400 font-semibold">Proyectos Exitosos</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-8 text-center fade-in">
+                <div class="stat-number mb-2" data-target="250">0</div>
+                <p class="text-slate-400 font-semibold">Miles de Usuarios</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-8 text-center fade-in">
+                <div class="stat-number mb-2" data-target="6">0</div>
+                <p class="text-slate-400 font-semibold">Instituciones Públicas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Áreas de Expertise -->
+    <section class="max-w-6xl mx-auto py-20 px-6">
+        <h2 class="text-4xl md:text-5xl font-black mb-16 text-center fade-in">
+            Áreas de <span class="gradient-text">Expertise</span>
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-project-diagram text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Arquitectura de Software</h3>
+                <p class="text-slate-400">Diseño de sistemas escalables, monolíticos y microservicios con patrones modernos.</p>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-server text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">APIs REST & Microservicios</h3>
+                <p class="text-slate-400">Integración robusta entre sistemas con arquitecturas distribuidas.</p>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-tachometer-alt text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Optimización de Rendimiento</h3>
+                <p class="text-slate-400">Mejoras de hasta 40% en velocidad y reducción de 35% en tiempos de respuesta.</p>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-yellow-500 to-orange-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-database text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Bases de Datos</h3>
+                <p class="text-slate-400">Experto en MySQL/MariaDB, diseño de esquemas complejos y optimización de consultas.</p>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-red-500 to-rose-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-shield-alt text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Seguridad Web</h3>
+                <p class="text-slate-400">Implementación de estándares de seguridad, auditorías y cumplimiento normativo.</p>
+            </div>
+
+            <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-4">
+                    <i class="fas fa-users text-2xl text-white"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Liderazgo Técnico</h3>
+                <p class="text-slate-400">Mentoría de equipos, gestión de proyectos y transformación digital.</p>
+            </div>
+        </div>
+    </section>
+
     <section class="max-w-5xl mx-auto py-16 px-6">
-        <h2 class="text-3xl font-bold mb-10 text-center">Mi Experiencia</h2>
-
-        <div class="grid md:grid-cols-2 gap-8 mb-12">
-            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-lg border-l-4 border-blue-500">
-                <h3 class="text-xl font-bold text-blue-700 mb-3">
-                    <i class="fas fa-building mr-2"></i> Sector Público
-                </h3>
-                <p class="text-gray-700">Lideré la transformación digital de instituciones estatales, desarrollando
-                    sistemas que sirven a 18,000+ servidores públicos con resultados medibles: reducción de 35% en
-                    tiempos de respuesta y mejora en eficiencia operativa.</p>
+        <h2 class="text-4xl md:text-5xl font-black mb-16 text-center fade-in">
+            Stack <span class="gradient-text">Tecnológico</span>
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-php text-5xl text-cyan-400 mb-4"></i>
+                <p class="font-bold text-lg">PHP / Laravel</p>
+                <p class="text-slate-400 text-sm">Expert Level</p>
             </div>
-
-            <div class="bg-gradient-to-br from-green-50 to-teal-50 p-8 rounded-lg border-l-4 border-green-500">
-                <h3 class="text-xl font-bold text-green-700 mb-3">
-                    <i class="fas fa-rocket mr-2"></i> Sector Privado
-                </h3>
-                <p class="text-gray-700">Desarrollé soluciones innovadoras para startups y empresas consolidadas.
-                    Especializado en arquitectura escalable, APIs robustas y optimización de rendimiento con impacto
-                    directo en ingresos.</p>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fas fa-database text-5xl text-blue-400 mb-4"></i>
+                <p class="font-bold text-lg">MySQL / MariaDB</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
             </div>
-        </div>
-
-        <div class="bg-white p-8 rounded-xl border border-gray-200 shadow-sm">
-            <h3 class="text-xl font-bold mb-6 text-gray-800">Áreas de Expertise</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Arquitectura de Software</p>
-                        <p class="text-sm text-gray-600">Diseño de sistemas escalables y mantenibles</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">APIs REST y Microservicios</p>
-                        <p class="text-sm text-gray-600">Integración robusta entre sistemas</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Optimización de Rendimiento</p>
-                        <p class="text-sm text-gray-600">Mejoras de hasta 40% en velocidad</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Seguridad Web</p>
-                        <p class="text-sm text-gray-600">Cumplimiento normativo y auditorías</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Liderazgo Técnico</p>
-                        <p class="text-sm text-gray-600">Mentoría y gestión de equipos</p>
-                    </div>
-                </div>
-                <div class="flex items-start">
-                    <div class="bg-blue-100 rounded-full p-2 mr-4 mt-1">
-                        <i class="fas fa-check text-blue-600"></i>
-                    </div>
-                    <div>
-                        <p class="font-semibold text-gray-800">Transformación Digital</p>
-                        <p class="text-sm text-gray-600">Modernización de legados</p>
-                    </div>
-                </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-js text-5xl text-yellow-400 mb-4"></i>
+                <p class="font-bold text-lg">JavaScript</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-vuejs text-5xl text-green-400 mb-4"></i>
+                <p class="font-bold text-lg">Vue.js</p>
+                <p class="text-slate-400 text-sm">Intermediate</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-linux text-5xl text-slate-300 mb-4"></i>
+                <p class="font-bold text-lg">CentOS / Linux</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fas fa-server text-5xl text-purple-400 mb-4"></i>
+                <p class="font-bold text-lg">APIs REST</p>
+                <p class="text-slate-400 text-sm">Expert Level</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-git-alt text-5xl text-orange-400 mb-4"></i>
+                <p class="font-bold text-lg">Git / GitHub</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-docker text-5xl text-cyan-500 mb-4"></i>
+                <p class="font-bold text-lg">Docker</p>
+                <p class="text-slate-400 text-sm">Intermediate</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fab fa-wordpress-simple text-5xl text-blue-500 mb-4"></i>
+                <p class="font-bold text-lg">WordPress</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fas fa-lock text-5xl text-red-400 mb-4"></i>
+                <p class="font-bold text-lg">Seguridad Web</p>
+                <p class="text-slate-400 text-sm">Advanced</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fas fa-mobile-alt text-5xl text-pink-400 mb-4"></i>
+                <p class="font-bold text-lg">Apps Móviles</p>
+                <p class="text-slate-400 text-sm">Intermediate</p>
+            </div>
+            <div class="glass glass-hover rounded-2xl p-6 text-center fade-in">
+                <i class="fas fa-robot text-5xl text-indigo-400 mb-4"></i>
+                <p class="font-bold text-lg">IA para Desarrollo</p>
+                <p class="text-slate-400 text-sm">Intermediate</p>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-16 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <h2 class="text-3xl font-bold mb-10">Stack Tecnológico</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fab fa-php text-4xl text-blue-800 mb-2"></i>
-                    <p class="font-semibold">PHP (Laravel)</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-database text-4xl text-blue-500 mb-2"></i>
-                    <p class="font-semibold">MySQL / MariaDB</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fab fa-js text-4xl text-yellow-500 mb-2"></i>
-                    <p class="font-semibold">JavaScript</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fab fa-linux text-4xl text-gray-700 mb-2"></i>
-                    <p class="font-semibold">CentOS / Linux</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fab fa-wordpress-simple text-4xl text-blue-700 mb-2"></i>
-                    <p class="font-semibold">WordPress</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-pencil-ruler text-4xl text-pink-500 mb-2"></i>
-                    <p class="font-semibold">Herramientas UI/UX</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-robot text-4xl text-purple-500 mb-2"></i>
-                    <p class="font-semibold">IA para Desarrollo</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-server text-4xl text-green-600 mb-2"></i>
-                    <p class="font-semibold">APIs REST</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-chart-bar text-4xl text-orange-500 mb-2"></i>
-                    <p class="font-semibold">Análisis de Datos</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-lock text-4xl text-red-600 mb-2"></i>
-                    <p class="font-semibold">Seguridad Web</p>
-                </div>
-                <div class="p-4 shadow-sm border rounded-lg hover:shadow-md transition"><i
-                        class="fas fa-tachometer-alt text-4xl text-blue-600 mb-2"></i>
-                    <p class="font-semibold">Optimización</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Sección: Por qué contratarme -->
-    <section class="bg-gradient-to-r from-blue-50 to-indigo-50 py-16 px-6">
+    <!-- Por qué contratarme -->
+    <section class="py-20 px-6">
         <div class="max-w-6xl mx-auto">
-            <h2 class="text-3xl font-bold mb-12 text-center">¿Por qué elegirme como tu Desarrollador?</h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center fade-in">
+                ¿Por qué <span class="gradient-text">elegirme</span>?
+            </h2>
 
-            <div class="grid md:grid-cols-3 gap-8 mb-12">
-                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-blue-600">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-blue-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-landmark text-blue-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg">Expertise Sectorial</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center mb-6">
+                        <i class="fas fa-landmark text-3xl text-white"></i>
                     </div>
-                    <p class="text-gray-600">Amplia trayectoria fusionando la rigurosidad del <strong>Gobierno
-                            Digital</strong> con la agilidad del <strong>Sector Privado</strong> y Startups.</p>
+                    <h3 class="text-xl font-bold mb-4">Expertise Sectorial</h3>
+                    <p class="text-slate-400">Fusión única entre la rigurosidad del <strong class="text-cyan-400">Gobierno Digital</strong> y la agilidad del <strong class="text-purple-400">Sector Privado</strong>.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-green-600">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-green-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-server text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg">Sistemas de Misión Crítica</h3>
+                <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center mb-6">
+                        <i class="fas fa-server text-3xl text-white"></i>
                     </div>
-                    <p class="text-gray-600">Desarrollo de plataformas de alta disponibilidad: conteos electorales en
-                        tiempo real, monitoreo legislativo y gestión de agua potable.</p>
+                    <h3 class="text-xl font-bold mb-4">Sistemas de Misión Crítica</h3>
+                    <p class="text-slate-400">Plataformas de alta disponibilidad: conteos electorales en tiempo real, monitoreo legislativo y gestión de agua potable.</p>
                 </div>
 
-                <div class="bg-white p-8 rounded-xl shadow-md border-l-4 border-purple-600">
-                    <div class="flex items-center mb-4">
-                        <div class="bg-purple-100 rounded-full p-3 mr-4">
-                            <i class="fas fa-mobile-alt text-purple-600 text-2xl"></i>
-                        </div>
-                        <h3 class="font-bold text-lg">Soluciones 360°</h3>
+                <div class="glass glass-hover rounded-2xl p-8 fade-in">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center mb-6">
+                        <i class="fas fa-mobile-alt text-3xl text-white"></i>
                     </div>
-                    <p class="text-gray-600">Capacidad técnica para entregar ecosistemas completos: Portales Web, APIs
-                        RESTful y Aplicaciones Móviles integradas.</p>
-                </div>
-            </div>
-
-            <!-- Estadísticas -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-                <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-blue-600 mb-2">12+</p>
-                    <p class="text-gray-600 font-semibold">Años de Experiencia</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-green-600 mb-2">20+</p>
-                    <p class="text-gray-600 font-semibold">Proyectos Exitosos</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-purple-600 mb-2">250K+</p>
-                    <p class="text-gray-600 font-semibold">Ciudadanos Atendidos</p>
-                </div>
-                <div class="bg-white rounded-lg p-6 text-center shadow-md">
-                    <p class="text-4xl font-bold text-orange-600 mb-2">6+</p>
-                    <p class="text-gray-600 font-semibold">Instituciones de Gobierno</p>
+                    <h3 class="text-xl font-bold mb-4">Soluciones 360°</h3>
+                    <p class="text-slate-400">Ecosistemas completos: Portales Web, APIs RESTful y Aplicaciones Móviles totalmente integradas.</p>
                 </div>
             </div>
         </div>
@@ -313,430 +769,459 @@
 
     <!-- Proyectos -->
     <section id="proyectos" class="max-w-6xl mx-auto py-16 px-6">
-        <h2 class="text-3xl font-bold mb-12 text-center">Proyectos Destacados</h2>
+        <h2 class="text-4xl md:text-5xl font-black mb-4 text-center fade-in">
+            Proyectos <span class="gradient-text">Destacados</span>
+        </h2>
+        <p class="text-center text-slate-400 mb-12 fade-in">Soluciones de alto impacto en el sector público y privado</p>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Proyecto: Sistema de Monitoreo Legislativo -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/monitoreo-legislativo.png" alt="Sistema de Monitoreo Legislativo"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Sistema de Monitoreo Legislativo</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma para seguimiento, análisis y visualización de
-                        iniciativas, dictámenes y actividad parlamentaria en tiempo real.<br><a href="#" target="_blank"
-                            class="text-indigo-700 font-semibold">Ver sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Ciudad Madero -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/ciudadmadero.png" alt="Ciudad Madero"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-green-700">Ciudad Madero (2016-2018)</h3>
-                    <p class="text-gray-600 text-sm mb-4">Portal institucional del Gobierno Municipal de Ciudad Madero.
-                        Transparencia, servicios y noticias.<br><a href="https://ciudadmadero.gob.mx" target="_blank"
-                            class="text-green-700 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: COMAPA Nuevo Laredo -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/comapa-nl.png" alt="COMAPA Nuevo Laredo"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-blue-700">COMAPA Nuevo Laredo (2021)</h3>
-                    <p class="text-gray-600 text-sm mb-4">Portal institucional para la gestión y consulta de servicios
-                        de agua potable y drenaje.<br><a href="https://www.comapanuevolaredo.gob.mx/sitio/"
-                            target="_blank" class="text-blue-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Control Escolar CECATI 96 -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/cecati96.png" alt="CECati 96"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-green-700">Control Escolar CECATI 96</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sistema de gestión escolar para el CECATI 96, administración
-                        de alumnos, cursos y calificaciones.<br><a href="https://www.cecati096.com.mx/" target="_blank"
-                            class="text-green-700 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Conteos Electorales (Eprendy) -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/conteo-electoral.png" alt="Conteos Electorales"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Conteos Electorales</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sistema de conteo rápido y difusión de resultados electorales
-                        en tiempo real.<br><a href="https://conteo.eprendy.com/" target="_blank"
-                            class="text-yellow-700 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: DIF Madero -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/difmadero.png" alt="DIF Madero"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-pink-700">DIF Madero 2016-2018</h3>
-                    <p class="text-gray-600 text-sm mb-4">Portal oficial del Sistema DIF de Ciudad Madero. Información,
-                        servicios y transparencia.<br><a href="https://difmadero.gob.mx" target="_blank"
-                            class="text-pink-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Jamarq Creador de Contenido -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/jamarq.png" alt="Jamarq Creador de Contenido"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-purple-700">Jamarq Creador de Contenido</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma personal y portafolio digital para Jamarq, creador
-                        de contenido multimedia, videos y streaming.<br><a href="#" target="_blank"
-                            class="text-purple-700 font-semibold">Ver sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Manuel Canales Diputado 2020 -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/manuelcanales.png" alt="Manuel Canales Diputado 2020"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-blue-800">Manuel Canales Diputado (2020)</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sitio web de campaña y plataforma de comunicación para el
-                        diputado Manuel Canales. Difusión de propuestas, noticias y contacto ciudadano.<br><a href="#"
-                            target="_blank" class="text-blue-800 font-semibold">Ver sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Observatorio UAT -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/observatorio.png" alt="Observatorio UAT"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-indigo-700">Observatorio UAT</h3>
-                    <p class="text-gray-600 text-sm mb-4">Portal estadístico institucional para la visualización de
-                        datos estratégicos y mapas interactivos.<br><a href="https://observatorio.uat.edu.mx/"
-                            target="_blank" class="text-indigo-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: ORT México -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/ort-mexico.png" alt="ORT México"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-blue-800">ORT México</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sitio institucional para la red educativa ORT México.<br><a
-                            href="https://ort.com.mx/" target="_blank" class="text-blue-800 font-semibold">Visitar
-                            sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: ORT Noticias -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/ort-noticias.png" alt="ORT Noticias"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-red-700">ORT Noticias</h3>
-                    <p class="text-gray-600 text-sm mb-4">Portal de noticias y radio en vivo para la comunidad de
-                        Tamaulipas.<br><a href="https://ortnoticias.com.mx/" target="_blank"
-                            class="text-red-700 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: SITAM Tamaulipas -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/sitam.png" alt="SITAM Tamaulipas"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-slate-800">SITAM Tamaulipas</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma integral para servidores públicos del Gobierno de
-                        Tamaulipas. Arquitectura monolítica y de microservicios para homologación de usuarios, cuentas,
-                        correo y servicios internos.<br><a href="https://sitam.tamaulipas.gob.mx/home" target="_blank"
-                            class="text-slate-800 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Soy PJ Tamaulipas -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/soypj.png" alt="Soy PJ Tamaulipas"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-gray-800">Soy PJ Tamaulipas (App móvil)</h3>
-                    <p class="text-gray-600 text-sm mb-4">Aplicación móvil oficial del Poder Judicial de Tamaulipas para
-                        consulta de expedientes y servicios.<br><a
-                            href="https://play.google.com/store/apps/details?id=mx.gob.pjetam.soypjtamaulipas&hl=es_MX"
-                            target="_blank" class="text-blue-900 font-semibold">Ver en Google Play</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: StrategyMKT -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/strategymkt.png" alt="StrategyMKT"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-pink-700">StrategyMKT</h3>
-                    <p class="text-gray-600 text-sm mb-4">Agencia de marketing digital con soluciones personalizadas
-                        para empresas.<br><a href="https://www.strategymkt.com/" target="_blank"
-                            class="text-pink-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
+        <!-- Project Filters -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 fade-in">
+            <button class="filter-btn active" data-filter="all">Todos</button>
+            <button class="filter-btn" data-filter="government">Gobierno</button>
+            <button class="filter-btn" data-filter="private">Sector Privado</button>
+            <button class="filter-btn" data-filter="web">Web</button>
+            <button class="filter-btn" data-filter="mobile">Móvil</button>
+        </div>
 
-
-            <!-- Proyecto: DWash (Eprendy) -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/dwash.png" alt="DWash"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-cyan-700">DWash (POS)</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sistema punto de venta para autolavados, gestión de servicios
-                        y ventas.<br><a href="https://dwash.eprendy.com/" target="_blank"
-                            class="text-cyan-700 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-
-            <!-- Proyecto: Eprendy -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/eprendy.png" alt="Eprendy"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-green-700">Eprendy</h3>
-                    <p class="text-gray-600 text-sm mb-4">Plataforma educativa digital para cursos y capacitaciones
-                        online.<br><a href="https://eprendy.com" target="_blank"
-                            class="text-green-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-
-            <!-- Proyecto: Grupo M Radio Móvil -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/grupomradio.png" alt="Grupo M Radio Móvil"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-yellow-700">Grupo M Radio Móvil</h3>
-                    <p class="text-gray-600 text-sm mb-4">Aplicación web para streaming de radio y acceso a contenidos
-                        multimedia.<br><a href="https://www.grupomradio.mx/movil/" target="_blank"
-                            class="text-yellow-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
-            <!-- Proyecto: Vive Fisioterapia -->
-            <div
-                class="proyecto-card bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 transition hover:shadow-xl hover:-translate-y-1">
-                <div class="relative group cursor-pointer">
-                    <img src="images/vivefisioterapia.png" alt="Vive Fisioterapia"
-                        class="w-full h-40 object-cover rounded-t-xl transition group-hover:opacity-80"
-                        onclick="openImageModal(this.src)">
-                    <div
-                        class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40 rounded-t-xl pointer-events-none">
-                        <i class="fas fa-search-plus text-white text-3xl"></i>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <h3 class="font-bold text-lg mb-2 text-teal-700">Vive Fisioterapia</h3>
-                    <p class="text-gray-600 text-sm mb-4">Sitio web profesional para clínica de fisioterapia, con
-                        información de servicios y contacto.<br><a href="https://vivefisioterapia.com/" target="_blank"
-                            class="text-teal-600 font-semibold">Visitar sitio</a></p>
-                </div>
-            </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+            <!-- Projects will be rendered dynamically by JavaScript -->
         </div>
     </section>
 
-
-
-
-
-
-
     <!-- CTA Final -->
-    <section class="bg-gradient-to-r from-slate-900 to-slate-800 text-white py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl font-bold mb-6">¿Listo para llevar tu proyecto al siguiente nivel?</h2>
-            <p class="text-xl text-blue-200 mb-8">Tengo experiencia en arquitectura escalable, optimización de
-                rendimiento y desarrollo de soluciones que crecen con tu negocio.</p>
+    <section class="relative py-20 px-6 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-blue-900/30 to-cyan-900/30"></div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-black mb-6 fade-in">
+                ¿Listo para llevar tu proyecto al <span class="gradient-text">siguiente nivel</span>?
+            </h2>
+            <p class="text-xl text-slate-300 mb-10 fade-in">
+                Experiencia en arquitectura escalable, optimización de rendimiento y desarrollo de soluciones que crecen con tu negocio.
+            </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="mailto:edwardo.mtz@gmail.com?subject=Propuesta%20de%20Proyecto"
-                    class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fas fa-envelope mr-2"></i> Contáctame Ahora
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8 fade-in">
+                <a href="mailto:edwardo.mtz@gmail.com?subject=Propuesta%20de%20Proyecto" class="btn-primary glow">
+                    <i class="fas fa-envelope"></i> Contáctame Ahora
                 </a>
-                <a href="https://linkedin.com/in/aemartinezc" target="_blank"
-                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                <a href="https://linkedin.com/in/aemartinezc" target="_blank" class="btn-secondary">
+                    <i class="fab fa-linkedin"></i> LinkedIn
                 </a>
-                <a href="https://github.com/aemartinezc" target="_blank"
-                    class="border-2 border-white hover:bg-white hover:text-slate-900 text-white font-bold py-4 px-8 rounded-full transition text-lg inline-flex items-center justify-center">
-                    <i class="fab fa-github mr-2"></i> GitHub
+                <a href="https://github.com/aemartinezc" target="_blank" class="btn-secondary">
+                    <i class="fab fa-github"></i> GitHub
                 </a>
             </div>
 
-            <p class="text-gray-300 mt-8">Disponible para proyectos remotos, tiempo completo o consultoría especializada
+            <p class="text-slate-400 fade-in">
+                Disponible para proyectos remotos, tiempo completo o consultoría especializada
             </p>
         </div>
     </section>
 
-    <footer class="bg-slate-900 text-white py-12 px-6 border-t border-slate-700">
+    <footer class="border-t border-slate-800 py-12 px-6">
         <div class="max-w-6xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Contacto</h4>
-                    <p class="text-gray-300"><i class="fas fa-envelope mr-2"></i> edwardo.mtz@gmail.com</p>
-                    <p class="text-gray-300"><i class="fas fa-map-marker-alt mr-2"></i> Tamaulipas, México</p>
+                    <h4 class="font-bold text-xl mb-4 gradient-text">Contacto</h4>
+                    <p class="text-slate-400 mb-2">
+                        <i class="fas fa-envelope mr-2 text-cyan-400"></i> edwardo.mtz@gmail.com
+                    </p>
+                    <p class="text-slate-400">
+                        <i class="fas fa-map-marker-alt mr-2 text-cyan-400"></i> Tamaulipas, México
+                    </p>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Enlaces</h4>
+                    <h4 class="font-bold text-xl mb-4 gradient-text">Enlaces</h4>
                     <ul class="space-y-2">
-                        <li><a href="https://linkedin.com/in/aemartinezc" target="_blank"
-                                class="text-gray-300 hover:text-blue-400 transition"><i
-                                    class="fab fa-linkedin mr-2"></i> LinkedIn</a></li>
-                        <li><a href="https://github.com/aemartinezc" target="_blank"
-                                class="text-gray-300 hover:text-blue-400 transition"><i class="fab fa-github mr-2"></i>
-                                GitHub</a></li>
+                        <li>
+                            <a href="https://linkedin.com/in/aemartinezc" target="_blank"
+                                class="text-slate-400 hover:text-cyan-400 transition inline-flex items-center">
+                                <i class="fab fa-linkedin mr-2"></i> LinkedIn
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/aemartinezc" target="_blank"
+                                class="text-slate-400 hover:text-cyan-400 transition inline-flex items-center">
+                                <i class="fab fa-github mr-2"></i> GitHub
+                            </a>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-bold text-lg mb-4">Disponibilidad</h4>
-                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Disponible
-                        para nuevos proyectos</p>
-                    <p class="text-gray-300 text-sm"><i class="fas fa-check-circle text-green-400 mr-2"></i> Remoto,
-                        Tiempo completo o Consultoría</p>
+                    <h4 class="font-bold text-xl mb-4 gradient-text">Disponibilidad</h4>
+                    <p class="text-slate-400 mb-2">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i> Nuevos proyectos
+                    </p>
+                    <p class="text-slate-400">
+                        <i class="fas fa-check-circle text-green-400 mr-2"></i> Remoto / Consultoría
+                    </p>
                 </div>
             </div>
 
-            <div class="border-t border-slate-700 pt-8 text-center">
-                <p class="text-gray-400">© 2026 Eduardo Martínez Castillo | Desarrollador Web Senior</p>
-                <p class="text-gray-500 text-sm mt-2">Transformando ideas en soluciones digitales de impacto</p>
+            <div class="border-t border-slate-800 pt-8 text-center">
+                <p class="text-slate-400">© 2026 Eduardo Martínez Castillo | Senior Fullstack Developer</p>
+                <p class="text-slate-500 text-sm mt-2">Transformando ideas en soluciones digitales de impacto</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Modal para ver imágenes grandes
+        // ==================== PROJECTS DATA ====================
+        const projects = [
+            {
+                title: 'SITAM Tamaulipas',
+                description: 'Plataforma integral para 18,000+ servidores públicos del Gobierno de Tamaulipas. Arquitectura monolítica y microservicios.',
+                image: 'images/sitam.png',
+                url: 'https://sitam.tamaulipas.gob.mx/home',
+                category: ['government', 'web'],
+                featured: true,
+                color: 'cyan'
+            },
+            {
+                title: 'Sistema de Monitoreo Legislativo',
+                description: 'Plataforma en tiempo real para seguimiento de iniciativas parlamentarias con dashboards interactivos.',
+                image: 'images/monitoreo-legislativo.png',
+                url: '#',
+                category: ['government', 'web'],
+                featured: true,
+                color: 'indigo'
+            },
+            {
+                title: 'COMAPA Nuevo Laredo',
+                description: 'Portal institucional para gestión de agua potable atendiendo a 100,000+ ciudadanos.',
+                image: 'images/comapa-nl.png',
+                url: 'https://www.comapanuevolaredo.gob.mx/sitio/',
+                category: ['government', 'web'],
+                featured: true,
+                color: 'blue'
+            },
+            {
+                title: 'Soy PJ Tamaulipas',
+                description: 'Aplicación móvil oficial del Poder Judicial de Tamaulipas para consulta de expedientes y servicios.',
+                image: 'images/soypj.png',
+                url: 'https://play.google.com/store/apps/details?id=mx.gob.pjetam.soypjtamaulipas',
+                category: ['government', 'mobile'],
+                featured: true,
+                color: 'purple'
+            },
+            {
+                title: 'Conteos Electorales',
+                description: 'Sistema de conteo rápido y difusión de resultados electorales en tiempo real.',
+                image: 'images/conteo-electoral.png',
+                url: 'https://conteo.eprendy.com/',
+                category: ['government', 'web'],
+                featured: false,
+                color: 'yellow'
+            },
+            {
+                title: 'Ciudad Madero',
+                description: 'Portal institucional del Gobierno Municipal. Transparencia, servicios y noticias.',
+                image: 'images/ciudadmadero.png',
+                url: 'https://ciudadmadero.gob.mx',
+                category: ['government', 'web'],
+                featured: false,
+                color: 'green'
+            },
+            {
+                title: 'DIF Madero',
+                description: 'Portal oficial del Sistema DIF de Ciudad Madero. Información, servicios y transparencia.',
+                image: 'images/difmadero.png',
+                url: 'https://difmadero.gob.mx',
+                category: ['government', 'web'],
+                featured: false,
+                color: 'pink'
+            },
+            {
+                title: 'Observatorio UAT',
+                description: 'Portal estadístico institucional para la visualización de datos estratégicos y mapas interactivos.',
+                image: 'images/observatorio.png',
+                url: 'https://observatorio.uat.edu.mx/',
+                category: ['government', 'web'],
+                featured: false,
+                color: 'teal'
+            },
+            {
+                title: 'Eprendy',
+                description: 'Plataforma educativa SaaS para cursos online. Desarrollo full-stack con Laravel y Vue.js.',
+                image: 'images/eprendy.png',
+                url: 'https://eprendy.com',
+                category: ['private', 'web'],
+                featured: true,
+                color: 'green'
+            },
+            {
+                title: 'DWash POS',
+                description: 'Sistema punto de venta para autolavados, gestión de servicios y ventas.',
+                image: 'images/dwash.png',
+                url: 'https://dwash.eprendy.com/',
+                category: ['private', 'web'],
+                featured: false,
+                color: 'cyan'
+            },
+            {
+                title: 'StrategyMKT',
+                description: 'Sitio corporativo para agencia de marketing digital con CMS personalizado.',
+                image: 'images/strategymkt.png',
+                url: 'https://www.strategymkt.com/',
+                category: ['private', 'web'],
+                featured: false,
+                color: 'pink'
+            },
+            {
+                title: 'ORT México',
+                description: 'Sitio institucional para la red educativa ORT México.',
+                image: 'images/ort-mexico.png',
+                url: 'https://ort.com.mx/',
+                category: ['private', 'web'],
+                featured: false,
+                color: 'blue'
+            },
+            {
+                title: 'ORT Noticias',
+                description: 'Portal de noticias y radio en vivo para la comunidad de Tamaulipas.',
+                image: 'images/ort-noticias.png',
+                url: 'https://ortnoticias.com.mx/',
+                category: ['private', 'web'],
+                featured: false,
+                color: 'red'
+            },
+            {
+                title: 'Vive Fisioterapia',
+                description: 'Sitio web profesional para clínica de fisioterapia, con información de servicios y contacto.',
+                image: 'images/vivefisioterapia.png',
+                url: 'https://vivefisioterapia.com/',
+                category: ['private', 'web'],
+                featured: false,
+                color: 'teal'
+            },
+            {
+                title: 'CECATI 96',
+                description: 'Sistema de gestión escolar para el CECATI 96, administración de alumnos, cursos y calificaciones.',
+                image: 'images/cecati96.png',
+                url: 'https://www.cecati096.com.mx/',
+                category: ['government', 'web'],
+                featured: false,
+                color: 'green'
+            }
+        ];
+
+        // ==================== RENDER PROJECTS ====================
+        function renderProjects(filter = 'all') {
+            const grid = document.getElementById('projects-grid');
+            const filtered = filter === 'all' 
+                ? projects 
+                : projects.filter(p => p.category.includes(filter));
+
+            grid.innerHTML = filtered.map(project => `
+                <div class="project-card glass glass-hover rounded-2xl overflow-hidden fade-in" data-category="${project.category.join(' ')}">
+                    <div class="relative group cursor-pointer overflow-hidden project-image-container" data-image="${project.image}">
+                        <img src="${project.image}" 
+                             alt="${project.title}"
+                             class="w-full h-48 object-cover project-thumbnail">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+                            <i class="fas fa-search-plus text-white text-3xl"></i>
+                        </div>
+                        ${project.featured ? '<div class="absolute top-4 right-4 bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold">Destacado</div>' : ''}
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 text-${project.color}-400">${project.title}</h3>
+                        <p class="text-slate-400 text-sm mb-4">${project.description}</p>
+                        <a href="${project.url}" 
+                           target="_blank" 
+                           class="inline-flex items-center text-${project.color}-400 hover:text-${project.color}-300 font-semibold transition">
+                            Ver proyecto <i class="fas fa-external-link-alt ml-2 text-xs"></i>
+                        </a>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add click event listeners to images
+            setTimeout(() => {
+                document.querySelectorAll('.project-image-container').forEach(container => {
+                    container.addEventListener('click', function() {
+                        const imageSrc = this.dataset.image;
+                        openImageModal(imageSrc);
+                    });
+                });
+
+                // Re-trigger fade-in animation
+                document.querySelectorAll('.project-card').forEach((el, i) => {
+                    setTimeout(() => el.classList.add('visible'), i * 100);
+                });
+            }, 50);
+        }
+
+        // ==================== PROJECT FILTERS ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initial render
+            renderProjects();
+
+            // Filter buttons
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    const filter = this.dataset.filter;
+                    renderProjects(filter);
+                });
+            });
+
+            // ==================== PROGRESS BAR ====================
+            const progressBar = document.getElementById('progress-bar');
+            window.addEventListener('scroll', () => {
+                const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (window.scrollY / windowHeight) * 100;
+                progressBar.style.width = scrolled + '%';
+            });
+
+            // ==================== BACK TO TOP ====================
+            const backToTop = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // ==================== SCROLL ANIMATIONS ====================
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+            // ==================== ANIMATED COUNTERS ====================
+            const counters = document.querySelectorAll('.stat-number');
+            const counterObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('counted')) {
+                        entry.target.classList.add('counted');
+                        const target = parseInt(entry.target.dataset.target);
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
+                        let current = 0;
+
+                        const updateCounter = () => {
+                            current += increment;
+                            if (current < target) {
+                                entry.target.textContent = Math.floor(current) + (target >= 100 ? 'K+' : '+');
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                entry.target.textContent = target + (target >= 100 ? 'K+' : '+');
+                            }
+                        };
+                        updateCounter();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            counters.forEach(counter => counterObserver.observe(counter));
+
+            // ==================== SMOOTH SCROLL ====================
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href !== '#' && document.querySelector(href)) {
+                        e.preventDefault();
+                        document.querySelector(href).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // ==================== PARTICLES BACKGROUND ====================
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const particleCount = 50;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 0.5 - 0.25;
+                    this.speedY = Math.random() * 0.5 - 0.25;
+                    this.opacity = Math.random() * 0.5 + 0.2;
+                }
+
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+
+                    if (this.x > canvas.width) this.x = 0;
+                    if (this.x < 0) this.x = canvas.width;
+                    if (this.y > canvas.height) this.y = 0;
+                    if (this.y < 0) this.y = canvas.height;
+                }
+
+                draw() {
+                    ctx.fillStyle = `rgba(0, 212, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(particle => {
+                    particle.update();
+                    particle.draw();
+                });
+
+                // Draw connections
+                particles.forEach((particleA, indexA) => {
+                    particles.slice(indexA + 1).forEach(particleB => {
+                        const dx = particleA.x - particleB.x;
+                        const dy = particleA.y - particleB.y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+
+                        if (distance < 150) {
+                            ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 * (1 - distance / 150)})`;
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particleA.x, particleA.y);
+                            ctx.lineTo(particleB.x, particleB.y);
+                            ctx.stroke();
+                        }
+                    });
+                });
+
+                requestAnimationFrame(animateParticles);
+            }
+
+            animateParticles();
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        });
+
+        // ==================== MODAL ====================
         function openImageModal(src) {
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
@@ -744,6 +1229,7 @@
             modal.style.display = 'flex';
             document.addEventListener('keydown', escCloseModal);
         }
+
         function closeImageModal() {
             const modal = document.getElementById('image-modal');
             const modalImg = document.getElementById('modal-img');
@@ -752,7 +1238,13 @@
             document.removeEventListener('keydown', escCloseModal);
         }
 
-        // Evitar que el modal se cierre al hacer clic en la imagen
+        function escCloseModal(e) {
+            if (e.key === 'Escape') {
+                closeImageModal();
+            }
+        }
+
+        // Prevent modal close on image click
         document.addEventListener('DOMContentLoaded', function () {
             const modalImg = document.getElementById('modal-img');
             if (modalImg) {
@@ -761,13 +1253,6 @@
                 });
             }
         });
-
-        // Cerrar modal con Escape
-        function escCloseModal(e) {
-            if (e.key === 'Escape') {
-                closeImageModal();
-            }
-        }
     </script>
 </body>
 
